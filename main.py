@@ -1,3 +1,6 @@
+"""
+Main
+"""
 from flask import Flask, request, render_template
 
 from views.products import products_app
@@ -15,6 +18,10 @@ app.register_blueprint(products_app, url_prefix="/products")
 
 @app.route("/")
 def hello_world():
+    """
+    hello world
+    :return:
+    """
     print_request()
     # return "<h1>Hello, World!</h1>"
     return render_template("index.html")
@@ -22,6 +29,10 @@ def hello_world():
 
 
 def print_request():
+    """
+    Print request
+    :return:
+    """
     print("request:", request)
     print("request.method", request.method)
     print("request.path", request.path)
@@ -30,6 +41,11 @@ def print_request():
 @app.route("/hello/")
 @app.route("/hello/<name>/")
 def hello_view(name: str = None):
+    """
+    hello view
+    :param name:
+    :return:
+    """
     print_request()
     if name is None:
         name = request.args.get("name", "")
@@ -44,6 +60,11 @@ def hello_view(name: str = None):
 
 @app.route("/items/<int:item_id>/")
 def get_item(item_id: int):
+    """
+    get item
+    :param item_id:
+    :return:
+    """
     return {
         "item": {"id": item_id},
     }
@@ -51,10 +72,14 @@ def get_item(item_id: int):
 
 @app.route("/items/<item_id>/")
 def get_item_string(item_id: str):
+    """
+    get item string
+    :param item_id:
+    :return:
+    """
     return {
         "item_id": item_id.upper(),
     }
 
 if __name__ == "__main__":
     app.run(debug=True)
-
