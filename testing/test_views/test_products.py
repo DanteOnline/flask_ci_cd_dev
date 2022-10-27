@@ -1,7 +1,6 @@
 """
 Test products
 """
-import random
 from flask import url_for
 
 
