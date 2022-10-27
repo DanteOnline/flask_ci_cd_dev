@@ -58,7 +58,7 @@ def hello_view(name: str = None):
     return {"message": f"Hello {name}!"}
 
 
-@app.route("/items/<int:item_id>/")
+@app.route("/items/<int:item_id>/", endpoint='get_item')
 def get_item(item_id: int):
     """
     get item
@@ -80,6 +80,7 @@ def get_item_string(item_id: str):
     return {
         "item_id": item_id.upper(),
     }
+
 
 if __name__ == "__main__":
     app.run(debug=True)
