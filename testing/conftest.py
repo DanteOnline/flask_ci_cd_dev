@@ -12,7 +12,7 @@ def client() -> FlaskClient:
     Client
     :return:
     """
-    app.config.update(WTF_CSRF_ENABLED=True)
+    app.config.update(WTF_CSRF_ENABLED=False)
     app.config.update(SERVER_NAME="testserver.org")
     # pylint: disable=redefined-outer-name
     with app.test_client() as client:  # type: FlaskClient
