@@ -55,12 +55,6 @@ def get_item_string(item_id: str):
         "item_id": item_id.upper(),
     }
 
-
-# @app.route("/hello/<name>/")
-# def hello_name(name: str):
-#     return {"message": f"Hello {name}!"}
-
-
 if __name__ == "__main__":
     app.run(debug=True)
 
